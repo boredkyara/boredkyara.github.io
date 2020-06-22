@@ -464,14 +464,6 @@ div.container-full>div.control {
     /* width: 100%; */
 }
 
-#waffle {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 95%;
-    height: 200px;
-}
-
 .block {
     width: 2%;
     height: 5%;
@@ -509,4 +501,19 @@ figure {
     width: 250px;
     left: 30%;
     padding: 10px;
+}
+
+@media screen and (max-width: 480px) {
+    #body {
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #body>div {
+        padding: 4px;
+    }
+    .smalltext {
+        padding-top: 2px;
+        font-size: 12px;
+    }
 }
