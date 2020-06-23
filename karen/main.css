@@ -172,6 +172,7 @@ text {
 
 .glitch {
     font-size: 60px;
+    /* font-family: "Montserrat", sans-serif; */
     font-family: 'Oswald', sans-serif;
 }
 
@@ -231,8 +232,8 @@ h3 {
     margin: -10px 0 0 -10px;
     border-left: none;
     border-top: none;
-    border-right: 1px #fff solid;
-    border-bottom: 1px #fff solid;
+    border-right: 1px #282828 solid;
+    border-bottom: 1px #282828 solid;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-name: arrow;
@@ -408,32 +409,11 @@ div.container-full>div.control {
     cursor: pointer;
 }
 
-.songbox {
-    /* position: flex; */
-    /* float: middle; */
-    font-family: 'Open Sans', sans-serif;
-    display: block;
-    padding-right: 15px;
-    color: #111111;
-    text-align: right;
-    /* width: 40%; */
-    /* border: white 2px solid; */
-    /* background-color: lightgray; */
-    /* border-bottom: lightgray 2px solid; */
-}
-
 .chart-head {
     font-family: "Montserrat", sans-serif;
     font-size: 28px;
     font-weight: 800;
     color: gainsboro;
-}
-
-.band,
-.song {
-    /* padding: 0px; */
-    font-size: 18px;
-    text-align: center;
 }
 
 .source {
@@ -484,14 +464,6 @@ div.container-full>div.control {
     margin: 0 0.5rem;
 }
 
-.genre-count {
-    display: inline-block;
-    margin: 0;
-    margin-left: 5px;
-    font-weight: 500;
-    font-size: 17px;
-}
-
 figure {
     margin: auto 10px;
 }
@@ -509,11 +481,11 @@ figure {
         margin-left: auto;
         margin-right: auto;
     }
-    #body>div {
+    #content>div {
         padding: 4px;
     }
-    .smalltext {
+    #body-text {
         padding-top: 2px;
-        font-size: 12px;
+        font-size: 11px;
     }
 }
