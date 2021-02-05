@@ -108,7 +108,8 @@ d3.csv("https://raw.githubusercontent.com/boredkyara/karen/master/yvonne.csv", f
     svg3.append("path")
         .data([data])
         .attr("class", "line")
-        .attr("stroke", "#282828")
+        .attr("fill", "none")
+        .attr("stroke", "white")
         .attr("d", valueline);
 
     // Add the valueline2 path.
@@ -116,25 +117,27 @@ d3.csv("https://raw.githubusercontent.com/boredkyara/karen/master/yvonne.csv", f
         .data([data])
         // .attr("class", "line")
         .attr("fill", "none")
-        .attr("stroke", "rgba(163, 51, 39, 0.8)")
-        .attr("stroke-width", 2)
+        .attr("stroke", "rgba(129, 140, 248)")
+        .attr("stroke-width", 1.5)
         .attr("d", valueline2);
 
     // Add the X Axis
     svg3.append("g")
         .attr("transform", "translate(0," + height3 + ")")
+        .attr("class", "axisWhite")
         .call(d3.axisBottom(x));
 
     // Add the Y Axis
     svg3.append("g")
+    .attr("class", "axisWhite")
         .call(d3.axisLeft(y));
 
 
     // Handmade legend
-    svg3.append("circle").attr("cx", 200).attr("cy", 0).attr("r", 6).style("fill", "rgba(163, 51, 39, 0.8)")
-    svg3.append("circle").attr("cx", 200).attr("cy", 30).attr("r", 6).style("fill", "#282828")
-    svg3.append("text").attr("x", 220).attr("y", 0).text("Karen").style("font-size", "15px").attr("alignment-baseline", "middle")
-    svg3.append("text").attr("x", 220).attr("y", 30).text("Yvonne").style("font-size", "15px").attr("alignment-baseline", "middle")
+    svg3.append("circle").attr("cx", 200).attr("cy", 0).attr("r", 6).style("fill", "rgba(129, 140, 248)")
+    svg3.append("circle").attr("cx", 200).attr("cy", 30).attr("r", 6).style("fill", "white")
+    svg3.append("text").attr("x", 220).attr("y", 0).text("Karen").style("font-size", "15px").style("fill", "white").attr("alignment-baseline", "middle")
+    svg3.append("text").attr("x", 220).attr("y", 30).text("Yvonne").style("font-size", "15px").style("fill", "white").attr("alignment-baseline", "middle")
 
 
 });

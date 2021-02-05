@@ -1,19 +1,39 @@
-<!doctype html>
-<html lang="en">
+<html>
+<style>
+  axisWhite line {
+  stroke: white;
+}
 
-<meta charset="utf-8">
+.axisWhite path {
+  stroke: white;
+}
+
+.axisWhite text {
+  fill: white;
+}
+
+.tick line{
+  stroke: white;
+}
+
+::-webkit-scrollbar {
+width: 0px;
+background: transparent; /* make scrollbar transparent */
+}
+
+
+</style>
+
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
-
 <head>
-    <link rel="stylesheet" href="main.css">
-    <!-- <link rel="stylesheet" href="scrollytelling.css"> -->
-    <title>Wie is de Nederlandse "Karen"?</title>
+
+<title>Wie is de Nederlandse Karen?</title>
     <title></title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="Wie is de Nederlandse Karen?">
     <meta name="news_keywords" content="">
@@ -36,97 +56,185 @@
     <meta name="twitter:image" content="https://raw.githubusercontent.com/boredkyara/boredkyara.github.io/master/karen/social-facebook.png">
     <link rel="canonical" href="">
 
-    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">	
 </head>
 
+
+
+
 <body>
-    <p class="note">👋 This piece was inspired by <em>The Pudding's</em> <a href="https://pudding.cool/2020/06/karen/" target="_blank" style="color: white;">You Know Karen</a></p>
-    <section class="container-dark active" id="home">
-        <div class="full-screen">
-            <div class="homepage">
-                <p class="teaser">Je hebt vast wel van de Amerikaanse Karen gehoord, maar..</p>
-                <a href="#">
-                    <h1 class="glitch">Wie is de Nederlandse Karen?</h1>
-                </a>
 
-                <p class="byline">geschreven door <a href="www.kyaralucas.com" target="_blank">Kyara Lucas</a> | Jun. 2020</p>
-            </div>
+<div class="bg-indigo-600">
+  <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between flex-wrap">
+      <div class="w-0 flex-1 flex items-center">
+        👋
+        <p class="ml-3 font-medium text-white truncate">
+          <span class="md:hidden">
+            We announced a new product!
+          </span>
+          <span class="hidden md:inline">
+            This piece was inspired by <em>The Pudding's</em> <a href="https://pudding.cool/2020/06/karen/" target="_blank">You Know Karen</a>
+          </span>
+        </p>
+      </div>
+   
+      <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
+        <button type="button" class="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
+          <span class="sr-only">Dismiss</span>
+          <!-- Heroicon name: outline/x -->
+          <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
-            <a href="#body">
-                <div class="arrow"></div>
-            </a>
-        </div>
-    </section>
-    <main id="content"> <i class="fa fa-pause"></i>
-        <div id="body">
-            <section id="1">
-                <div class="container">
-                    <a href="#body">
-                        <!-- <h3 class="glitch-subhead" data-text="Dance, Dance, Punk is Falling">Dance, Dance, Punk is Falling</h3> -->
+
+
+
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col" style="padding-bottom: 3rem !important;">
+    
+    <div class="text-center lg:w-2/3 w-full">
+
+<h2 class="text-xs text-indigo-400 tracking-widest font-medium title-font mb-1">Je hebt vast wel van de Amerikaanse Karen gehoord, maar..</h2>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Wie is de Nederlandse Karen?</h1>
+
+   
+      <p class="leading-relaxed mb-8">geschreven door Kyara Lucas | Jun. 2020</p>
+    
+
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container px-5 py-24 mx-auto" style="padding-top: 3rem !important;">
+  <div class="flex flex-col text-center w-full mb-12">
+
+<a href="#body">
+                      
                     </a>
-                    <p class="body-text">Karen is een van de grootste memes van 2020. <a href="https://www.theguardian.com/lifeandstyle/2020/may/13/karen-meme-what-does-it-mean">The Guardian</a> omschrijft Karen als een witte vrouw van middelbare leeftijd met een asymmetrische
-                        bob die vraagt ​​om met de manager te praten.</a> Maar in Nederland kennen we al sinds 2016 een identieke fenomeen, oftewel <a href="https://www.vice.com/nl/article/zmkgm8/vrouwen-met-een-kortpittig-kapsel-zijn-de-koninginnen-van-het-schijt-hebben">huisvrouwen met een kortpittig kapsel.</a>                        Terwijl de Amerikaanse Karen een naam heeft, is de Nederlandse equivalent naamloos gebleven. </p>
-                    <p class="body-text" style="text-align: center;"><b>Maar hoe is de Amerikaanse Karen ontstaan?</b></p>
-                    <p class="body-text">Om dit te beantwoorden kijken we naar de populariteit van <a href="https://www.ssa.gov/OACT/babynames/index.html" target="_blank">baby namen in de Verenigde Staten.</a> De naam Karen verscheen voor het eerst in de vrouwelijke Top 20
+
+  <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">Karen is een van de grootste memes van 2020. 
+    <a href="https://www.theguardian.com/lifeandstyle/2020/may/13/karen-meme-what-does-it-mean">The Guardian</a> omschrijft Karen als een witte vrouw van middelbare leeftijd met een asymmetrische
+                        bob die vraagt ​​om met de manager te praten.</a> Maar in Nederland kennen we al sinds 2016 een identieke fenomeen, oftewel <a href="https://www.vice.com/nl/article/zmkgm8/vrouwen-met-een-kortpittig-kapsel-zijn-de-koninginnen-van-het-schijt-hebben">huisvrouwen met een kortpittig kapsel.</a>                        Terwijl de Amerikaanse Karen een naam heeft, is de Nederlandse equivalent naamloos gebleven. 
+
+                      </p>
+
+
+                        <br>
+                  
+                   <h1 class="title-font text-lg font-medium text-white mb-3">Maar hoe is de Amerikaanse Karen ontstaan?</h1>
+<br>
+
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">Om dit te beantwoorden kijken we naar de populariteit van <a href="https://www.ssa.gov/OACT/babynames/index.html" target="_blank">baby namen in de Verenigde Staten.</a> De naam Karen verscheen voor het eerst in de vrouwelijke Top 20
                         in 1941 en bracht daar 30 jaar door totdat het in 1971 stopte. In de jaren negentig was de naam weer uit de Top 100 gevallen. Je kent vast well niet veel baby's die Karen heten.</p>
-                </div>
-                <p class="chart1-labels">Percentage baby's met de naam Karen in de VS per jaar</p>
-
-            </section>
-
-        </div>
-        <div class="container-full">
-
-            <div id="my_dataviz" class="center" style="text-align: center;"></div>
-            <script src="karen.js"></script>
-        </div>
-        <section id="4">
-            <div class="container">
-                <h3 class="glitch-subhead">De Perfecte Match</h3>
-                <p class="body-text">Om de Nederlandse Karen te vinden vergelijken we de populariteit van Nederlandse baby namen met die van Karen in de Verenigde Staten. Om de beste match te vinden, hebben we de correlatie berekend tussen de populariteit van een Nederlandse
-                    naam in de tijd vergeleken met die van Karen. Een correlatie van 1 is een perfecte match. Aangezien we op zoek zijn naar namen die het meest op Karen lijken, richten we ons op namen die sterk bij elkaar passen, of op iets met een correlatie
-                    boven 0,7. Dus, hierbij introduceren we....</p>
-            </div>
-
-        </section>
 
 
-        <section id="2">
 
-            <div class="container">
-                <h3 class="glitch-subhead">De Nederlandse Karens</h3>
-                <h1 class="glitch-subhead" style="text-align: center;">Marianne <br> 0.87 correlatie</h1>
-                <div id="marianne" class="center" style="text-align: center;"></div>
+
+    </div>
+
+
+    <div class="md:flex md:justify-center mb-6">
+            <div id="my_dataviz"></div>
+            <script src="karen.js"></script>   
+    </div>
+
+<h1 class="lg:w-2/3 mx-auto font-medium title-font mb-4 text-white">De Perfecte Match</h1>
+
+<p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">Om de Nederlandse Karen te vinden vergelijken we de populariteit van Nederlandse baby namen met die van Karen in de Verenigde Staten. Om de beste match te vinden, hebben we de correlatie berekend tussen de populariteit van een Nederlandse naam in de tijd vergeleken met die van Karen. Een correlatie van 1 is een perfecte match. Aangezien we op zoek zijn naar namen die het meest op Karen lijken, richten we ons op namen die sterk bij elkaar passen, of op iets met een correlatie boven 0,7. Dus, hierbij introduceren we....</p>
+
+<br>
+
+<h1 class="lg:w-2/3 mx-auto font-medium title-font mb-4 text-white">De Nederlandse Karens</h1>
+                <h1 class="text-center tracking-widest font-small" >Marianne <br> <span class="text-xs text-indigo-400 tracking-widest font-medium title-font mb-1">0.87 correlatie</span></h1>
+
+<div class="md:flex md:justify-center mb-6">
+                <div id="marianne" class="center"></div>
                 <script src="marianne.js"></script>
+</div>
 
-                <p class="body-text">Op basis van onze analyze hebben we op de eerste plaatst Marianne, die 0.87 correlatie heeft met de Amerikaanse Karen. Je kent waarschijnlijk niet veel baby's die Marianne heten.
-                </p>
 
-                <h1 class="glitch-subhead" style="text-align: center;">Yvonne <br> 0.82 correlatie</h1>
-                <div id="yvonne" class="center" style="text-align: center;"></div>
+<br>
+<p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">Op basis van onze analyze hebben we op de eerste plaatst Marianne, die 0.87 correlatie heeft met de Amerikaanse Karen. Je kent waarschijnlijk niet veel baby's die Marianne heten.</p>
+
+<br>
+
+<h1 class="text-center tracking-widest font-small">Yvonne <br> 
+<span class="text-xs text-indigo-400 tracking-widest font-medium title-font mb-1">0.82 correlatie</span>
+</h1>
+<div class="md:flex md:justify-center mb-6">
+                <div id="yvonne" class="center"></div>
                 <script src="yvonne.js"></script>
-                <p class="body-text">Op de tweede plek hebben we Yvonne. Net als de Amerikaanse Karen heeft de Nederlandse Yvonne haar peak gehad rond 1960.</p>
-            </div>
-        </section>
+</div>
+
+                <br>
+
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">Op de tweede plek hebben we Yvonne. Net als de Amerikaanse Karen heeft de Nederlandse Yvonne haar peak gehad rond 1960.</p>
 
 
-        <section id="#footer">
-            <div class="container">
-                <h3 class="glitch-subhead">Methodologie</h3>
-                <p class="body-text">Amerikaanse baby namen data (1918-2018) heb ik gehaald van <a href="https://www.ssa.gov/OACT/babynames/index.html" target="_blank">Social Security Administration</a> (SSA). De Nederlandse baby namen data (1918-2018) heb ik gehaald van
+
+<br>
+ <h1 class="lg:w-2/3 mx-auto font-medium title-font mb-4 text-white">Methodologie</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">Amerikaanse baby namen data (1918-2018) heb ik gehaald van <a href="https://www.ssa.gov/OACT/babynames/index.html" target="_blank">Social Security Administration</a> (SSA). De Nederlandse baby namen data (1918-2018) heb ik gehaald van
                     <a href="https://www.meertens.knaw.nl/nvb/" target="_blank">de Nederlandse Voornamenbank</a>. Om de trends tussen Nederland en de Verenigde Staten te kunnen vergelijken, heb ik de aantalen genormaliseerd met de jaarlijkse aantal babies
                     geboren in elk land. Om de trends te vergelijken heb ik de Pearson correlatie coefficient gebruikt.</p>
-            </div>
-        </section>
-        <script>
-            var l = null;
-        </script>
-        <div class="footer">
-            <!-- <a href="">2020</a> -->
-        </div>
 
-    </main>
+
+
+
+  </div>
+</section>
+
+
+
+
+
 </body>
+
+
+<footer class="text-gray-400 bg-gray-900 body-font">
+
+  <div class="bg-gray-800 bg-opacity-75">
+    <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+    
+     
+      <p class="text-sm text-gray-400 sm:ml-6 sm:mt-0 mt-4">© 2020 Kyara Lucas —
+        <a href="https://github.com/boredkyara" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">@boredkyara</a>
+      </p>
+
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+
+       
+        <a class="ml-3 text-gray-400" href="https://twitter.com/kyaralucas" target="_blank">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+    
+        <a class="ml-3 text-gray-400" href="https://linkedin.com/in/kyara-lucas-3652a7b8/" target="_blank">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+
 
 </html>

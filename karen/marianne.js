@@ -56,16 +56,6 @@ var valueline2 = d3.line()
         return y(d.open);
     });
 
-// append the svg obgect to the body of the page
-// appends a 'group' element to 'svg'
-// moves the 'group' element to the top left margin
-// var svg2 = d3.select("#marianne").append("svg")
-//     .attr("width", width2 + margin2.left + margin2.right)
-//     .attr("height", height2 + margin2.top + margin2.bottom)
-//     .append("g")
-//     .attr("transform",
-//         "translate(" + margin2.left + "," + margin2.top + ")");
-
 // Get the data
 d3.csv("https://raw.githubusercontent.com/boredkyara/karen/master/marianne.csv", function(error, data) {
     if (error) throw error;
@@ -118,7 +108,9 @@ d3.csv("https://raw.githubusercontent.com/boredkyara/karen/master/marianne.csv",
     svg2.append("path")
         .data([data])
         .attr("class", "line")
-        .attr("stroke", "#282828")
+        .attr("fill", "none")
+        .attr("stroke", "white")
+        .attr("stroke-width", 1.5)
         .attr("d", valueline);
 
     // Add the valueline2 path.
@@ -126,26 +118,28 @@ d3.csv("https://raw.githubusercontent.com/boredkyara/karen/master/marianne.csv",
         .data([data])
         // .attr("class", "line")
         .attr("fill", "none")
-        .attr("stroke", "rgba(163, 51, 39, 0.8)")
-        .attr("stroke-width", 2)
+        .attr("stroke", "rgba(129, 140, 248)")
+        .attr("stroke-width", 1.5)
         .attr("d", valueline2);
 
     // Add the X Axis
     svg2.append("g")
         .attr("transform", "translate(0," + height2 + ")")
+        .attr("class", "axisWhite")
         .call(d3.axisBottom(x));
 
     // Add the Y Axis
     svg2.append("g")
+    .attr("class", "axisWhite")
         .call(d3.axisLeft(y));
 
 
     // Handmade legend
     // Handmade legend
-    svg2.append("circle").attr("cx", 210).attr("cy", 0).attr("r", 6).style("fill", "rgba(163, 51, 39, 0.8)")
-    svg2.append("circle").attr("cx", 210).attr("cy", 30).attr("r", 6).style("fill", "#282828")
-    svg2.append("text").attr("x", 230).attr("y", 0).text("Karen").style("font-size", "15px").attr("alignment-baseline", "middle")
-    svg2.append("text").attr("x", 230).attr("y", 30).text("Marianne").style("font-size", "15px").attr("alignment-baseline", "middle")
+    svg2.append("circle").attr("cx", 210).attr("cy", 0).attr("r", 6).style("fill", "rgba(129, 140, 248)")
+    svg2.append("circle").attr("cx", 210).attr("cy", 30).attr("r", 6).style("fill", "white")
+    svg2.append("text").attr("x", 230).attr("y", 0).text("Karen").style("font-size", "15px").style("fill", "white").attr("alignment-baseline", "middle")
+    svg2.append("text").attr("x", 230).attr("y", 30).text("Marianne").style("font-size", "15px").style("fill", "white").attr("alignment-baseline", "middle")
 
 
 

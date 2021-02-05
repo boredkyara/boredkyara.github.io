@@ -55,6 +55,7 @@ d3.csv("https://raw.githubusercontent.com/boredkyara/karen/master/karen1918-2018
             }))
             .range([0, width]);
         svg.append("g")
+            .attr("class", "axisWhite")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x));
 
@@ -68,6 +69,7 @@ d3.csv("https://raw.githubusercontent.com/boredkyara/karen/master/karen1918-2018
             .domain([0, max])
             .range([height, 0]);
         svg.append("g")
+            .attr("class", "axisWhite")
             .call(d3.axisLeft(y));
 
         // Set the gradient
@@ -81,10 +83,10 @@ d3.csv("https://raw.githubusercontent.com/boredkyara/karen/master/karen1918-2018
             .selectAll("stop")
             .data([{
                 offset: "0%",
-                color: "blue"
+                color: "#6366F1"
             }, {
                 offset: "100%",
-                color: "red"
+                color: "#4F46E5"
             }])
             .enter().append("stop")
             .attr("offset", function(d) {
@@ -99,7 +101,7 @@ d3.csv("https://raw.githubusercontent.com/boredkyara/karen/master/karen1918-2018
             .datum(data)
             .attr("fill", "none")
             .attr("stroke", "url(#line-gradient)")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 1.5)
             .attr("d", d3.line()
                 .x(function(d) {
                     return x(d.year)
