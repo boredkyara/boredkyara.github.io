@@ -14,7 +14,7 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("/Users/kyara/PycharmProjects/boredkyara.github.io/spotify/bar.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/boredkyara/boredkyara.github.io/master/spotify/bar.csv", function(data) {
 
 // X axis
 var x = d3.scaleBand()
@@ -29,13 +29,25 @@ svg.append("g")
     .attr("transform", "translate(-10,0)rotate(-45)")
     .style("text-anchor", "end");
 
+
+
 // Add Y axis
 var y = d3.scaleLinear()
-  .domain([0, 13000])
+  .domain([0, 140])
   .range([ height, 0]);
 svg.append("g")
 .attr("class", "axisWhite")
   .call(d3.axisLeft(y));
+
+    // text label for the y axis
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .attr("fill", "white")
+      .style("text-anchor", "middle")
+      .text("Boringness");  
 
 // Bars
 svg.selectAll("mybar")
