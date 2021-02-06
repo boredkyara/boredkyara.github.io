@@ -57,7 +57,7 @@ var valueline2 = d3.line()
     });
 
 // Get the data
-d3.csv("https://raw.githubusercontent.com/boredkyara/karen/master/marianne.csv", function(error, data) {
+d3.csv("https://raw.githubusercontent.com/kyaralucas/karen/master/marianne.csv", function(error, data) {
     if (error) throw error;
 
     // format the data

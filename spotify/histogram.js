@@ -1,11 +1,11 @@
 
 // set the dimensions and margins of the graph
-var margin = {top: 30, right: 30, bottom: 70, left: 60},
+var margin = {top: 10, right: 30, bottom: 30, left: 40},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("#histogram")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -13,51 +13,62 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-// Parse the Data
-d3.csv("https://raw.githubusercontent.com/boredkyara/boredkyara.github.io/master/spotify/bar.csv", function(data) {
+// get the data
+d3.csv("https://raw.githubusercontent.com/kyaralucas/kyaralucas.github.io/master/spotify/histogram.csv", function(data) {
 
-// X axis
-var x = d3.scaleBand()
-  .range([ 0, width ])
-  .domain(data.map(function(d) { return d.Friend; }))
-  .padding(0.2);
-svg.append("g")
-  .attr("transform", "translate(0," + height + ")")
-  .call(d3.axisBottom(x))
-  .attr("class", "axisWhite")
-  .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end");
+  // X axis: scale and draw:
+  var x = d3.scaleLinear()
+      .domain([-4,9])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+      .range([0, width]);
+  svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
 
+  // set the parameters for the histogram
+  var histogram = d3.histogram()
+      .value(d)   // I need to give the vector of value
+      .domain(x.domain())  // then the domain of the graphic
+      .thresholds(x.ticks(40)); // then the numbers of bins
 
+  // And apply twice this function to data to get the bins.
+  var bins1 = histogram(data.filter( function(d){return d.Kyara } ));
+  var bins2 = histogram(data.filter( function(d){return d.Kenny} ));
 
-// Add Y axis
-var y = d3.scaleLinear()
-  .domain([0, 140])
-  .range([ height, 0]);
-svg.append("g")
-.attr("class", "axisWhite")
-  .call(d3.axisLeft(y));
+  // Y axis: scale and draw:
+  var y = d3.scaleLinear()
+      .range([height, 0]);
+      y.domain([0, d3.max(bins1, function(d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
+  svg.append("g")
+      .call(d3.axisLeft(y));
 
-    // text label for the y axis
-  svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .attr("fill", "white")
-      .style("text-anchor", "middle")
-      .text("Boringness");  
+  // append the bars for series 1
+  svg.selectAll("rect")
+      .data(bins1)
+      .enter()
+      .append("rect")
+        .attr("x", 1)
+        .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+        .attr("width", function(d) { return x(d.x1) - x(d.x0) - 1 ; })
+        .attr("height", function(d) { return height - y(d.length); })
+        .style("fill", "#69b3a2")
+        .style("opacity", 0.6)
 
-// Bars
-svg.selectAll("mybar")
-  .data(data)
-  .enter()
-  .append("rect")
-    .attr("x", function(d) { return x(d.Friend); })
-    .attr("y", function(d) { return y(d.Value); })
-    .attr("width", x.bandwidth())
-    .attr("height", function(d) { return height - y(d.Value); })
-    .attr("fill", "rgba(129, 140, 248)")
+  // append the bars for series 2
+  // svg.selectAll("rect2")
+  //     .data(bins2)
+  //     .enter()
+  //     .append("rect")
+  //       .attr("x", 1)
+  //       .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+  //       .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
+  //       .attr("height", function(d) { return height - y(d.length); })
+  //       .style("fill", "#404080")
+  //       .style("opacity", 0.6)
 
-})
+  // Handmade legend
+  // svg.append("circle").attr("cx",300).attr("cy",30).attr("r", 6).style("fill", "#69b3a2")
+  // svg.append("circle").attr("cx",300).attr("cy",60).attr("r", 6).style("fill", "#404080")
+  // svg.append("text").attr("x", 320).attr("y", 30).text("variable A").style("font-size", "15px").attr("alignment-baseline","middle")
+  // svg.append("text").attr("x", 320).attr("y", 60).text("variable B").style("font-size", "15px").attr("alignment-baseline","middle")
+
+});
