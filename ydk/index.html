@@ -1,0 +1,232 @@
+<html>
+<style>
+  axisWhite line {
+  stroke: white;
+}
+
+.axisWhite path {
+  stroke: white;
+}
+
+.axisWhite text {
+  fill: white;
+}
+
+.tick line{
+  stroke: white;
+}
+
+::-webkit-scrollbar {
+width: 0px;
+background: transparent; /* make scrollbar transparent */
+}
+
+
+</style>
+
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v5.js"></script>
+
+<head>
+
+
+
+<title>Measuring Racial Bias in Sports Journalism</title>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Measuring Racial Bias in Sports Journalism">
+    <meta name="news_keywords" content="">
+    <link rel="shortcut icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/trophy_1f3c6.png" type="image/x-icon">
+    <meta property="og:title" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="social-facebook.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="@kyaralucas">
+    <meta name="twitter:title" content="Measuring Racial Bias in Sports Journalism">
+    <!-- <meta name="twitter:description" content=""> -->
+    <meta name="twitter:image" content="">
+    <link rel="canonical" href="">
+
+
+
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">	
+</head>
+
+
+
+
+<body>
+
+
+
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col" style="padding-bottom: 3rem !important;">
+    
+    <div class="text-center lg:w-2/3 w-full">
+
+<h2 class="text-xs text-indigo-400 tracking-widest font-medium title-font mb-1">Under Two Flags</h2>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Measuring Racial Bias in Sports Journalism</h1>
+
+   
+      <p class="leading-relaxed mb-8">written by Kyara Lucas | Aug. 2017</p>
+    
+
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container px-5 py-24 mx-auto" style="padding-top: 3rem !important;">
+  <div class="flex flex-col text-center w-full mb-12">
+
+<a href="#body">
+                      
+                    </a>
+
+  <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">
+    As Curaçao is a member of the Dutch Kingdom, Curaçao born athletes usually compete under the Dutch flag. Recently I’ve seen a lot of posts on my Facebook feed adressing the fact that whenever a Curaçao born athlete performs well, the Dutch media refers to them as Dutch; however when they perform badly, they’re refered to as Curaçaoan.
+    I’m going to test this hypothesis with data. </p>
+<br>
+<br>
+<h1 class="lg:w-2/3 mx-auto font-medium title-font mb-4 text-white text-left">The dataset</h1>
+  <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">I collected all articles written in 2017 on  <a class="text-indigo-400 hover:text-white" href="https://nos.nl" target="_blank">NOS.nl</a>,  <a class="text-indigo-400 hover:text-white" href="https://www.nu.nl" target="_blank">NU.nl</a> and  <a class="text-indigo-400 hover:text-white" href="https://www.telegraaf.nl" target="_blank">Telegraaf.nl</a> about the top 5 most popular Curaçaoan athletes, namely: <a class="text-indigo-400 hover:text-white" href="https://nl.wikipedia.org/wiki/Churandy_Martina" target="_blank">Churandy Martina</a>, <a class="text-indigo-400 hover:text-white" href="https://en.wikipedia.org/wiki/Jurickson_Profar" target="_blank">Jurickson Profar</a>, <a class="text-indigo-400 hover:text-white" href="https://en.wikipedia.org/wiki/Jean-Julien_Rojer" target="_blank">Jean-Julien Rojer</a>, <a class="text-indigo-400 hover:text-white" href="https://en.wikipedia.org/wiki/Kenley_Jansen" target="_blank">Kenley Jansen</a> and <a class="text-indigo-400 hover:text-white" href="https://nl.wikipedia.org/wiki/Jair_Jurrjens" target="_blank">Jair Jurrjens</a>. Next, I separate the data set into two subsets. I differentiate between articles where the athlete is referred to as Dutch, and articles where they’re referred to as Curaçaoan.</p>
+
+                        <br>
+                        <br>
+                  
+                   <h1 class="lg:w-2/3 mx-auto font-medium title-font mb-4 text-white text-left">Measuring performance</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">I know a positive article when I read one, but translating that intuition into a number isn’t easy. To assess whether the article is about a “positive performance” by the athlete, I conduct a “sentiment analysis”. A sentiment analysis (a.k.a. opinion mining) uses natural language processing to assess and quantify the ‘attitude’ of a text. This algorithm assigns a number between -1 and 1 to each article, negative numbers signifying a “negative performance” and a positive number signifying a “positive performance” (obviously). If the result of the sentiment for a given article is equal to zero, then this is a "neutral" article.</p>
+
+<br>
+<br>
+
+  <h1 class="lg:w-2/3 mx-auto font-medium title-font mb-4 text-white text-left">A few results of the sentiment analysis</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">The article "<a class="text-indigo-400 hover:text-white" href="https://www.telegraaf.nl/sport/283359/martina-richt-zich-op-volgend-seizoen" target="_blank">Martina richt zich op volgend seizoen</a>" got a score of 0. The article titled 
+
+          "<a class="text-indigo-400 hover:text-white" href="https://www.telegraaf.nl/sport/280114/pijnlijke-hamstring-kost-martina-wk-atletiek" target="_blank">Pijnlijke hamstring kost Martina WK atletiek</a>"
+
+  received a score of -0.2. The article titled 
+
+
+"<a class="text-indigo-400 hover:text-white" href="https://www.ad.nl/andere-sporten/haase-en-rojer-zetten-nederland-weer-op-voorsprong~afbe8c2d/" target="_blank">Haase en Rojer zetten Nederland op voorsprong</a>"
+
+ got a score of 0.2.</p>
+<br>
+<br>
+
+ <h1 class="lg:w-2/3 mx-auto font-medium title-font mb-4 text-white text-left">Results visualized</h1>
+
+ <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">
+  Below we have the average sentiment score for each subset, where we differentiate between articles where the athlete is referred to as Dutch, and articles where they’re referred to as Curaçaoan.
+</p>
+
+<div class="md:flex md:justify-center mb-6">
+            <div id="bar"></div>
+            <script src="bar.js"></script>   
+  
+    </div>
+
+
+<!-- <div class="md:flex md:justify-center mb-6">
+            <div id="donut"></div>
+            <script src="donut.js"></script>   
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+<br> -->
+
+
+
+
+<h1 class="lg:w-2/3 mx-auto font-medium title-font mb-4 text-white text-left">Conclusion</h1>
+<p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">
+  I do not find a significant difference in sentiment scores when comparing the Dutch articles, to the Curaçaoan articles. Furthermore, I do not find a significant correlation between the negative articles and the Curaçaoan articles. Thus, I conclude that there is not enough evidence to back-up the claims of racial bias in sports journalism for Curaçao born athletes. This doesn’t mean that it doesn’t happen sometimes, it just means that there’s no statistical evidence to prove that it happens on a systematic basis.
+</p>
+<br>
+<br>
+
+ <h1 class="lg:w-2/3 mx-auto font-medium title-font mb-4 text-white text-left">Limitations</h1>
+<p class="lg:w-2/3 mx-auto leading-relaxed text-base text-left">
+It is important to note the limitations of this study. Firstly, the data set is rather small as it consists of less than 30 articles written in 2017. To test the difference between our subgroups we use parametric statistical methods which rely on normal approximation, which traditionally require a sample size which is greater than or equal to 30.
+
+
+</p>
+
+            
+
+
+
+
+
+  </div>
+</section>
+
+
+
+
+
+</body>
+
+
+<footer class="text-gray-400 bg-gray-900 body-font">
+
+  <div class="bg-gray-800 bg-opacity-75">
+    <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+    
+     
+      <p class="text-sm text-gray-400 sm:ml-6 sm:mt-0 mt-4">© 2020 Kyara Lucas —
+        <a href="https://kyaralucas.github.io/main/" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">@kyaralucas</a>
+      </p>
+
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+
+       
+        <a class="ml-3 text-gray-400" href="https://twitter.com/kyaralucas" target="_blank">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+    
+        <a class="ml-3 text-gray-400" href="https://linkedin.com/in/kyara-lucas-3652a7b8/" target="_blank">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+</html>
